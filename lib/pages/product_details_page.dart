@@ -160,132 +160,86 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
             titleTextStyle: theme.textTheme.bodyLarge
                 ?.copyWith(fontWeight: FontWeight.bold),
           ),
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      width: 120,
-                      height: 125,
-                      decoration: BoxDecoration(
-                        color: Colors.grey.shade100,
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Hourly",
-                            style: theme.textTheme.titleMedium
-                                ?.copyWith(fontWeight: FontWeight.bold),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 2),
-                            child: Text(
-                              "\$5.00",
-                              style: theme.textTheme.titleMedium
-                                  ?.copyWith(fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          const Text("/ hour"),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      width: 120,
-                      height: 125,
-                      decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Daily",
-                            style: theme.textTheme.titleMedium?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 2),
-                            child: Text(
-                              "\$15.00",
+          Column(
+            children: [
+              const SizedBox(height: 10),
+              SizedBox(
+                height: 125,
+                width: MediaQuery.sizeOf(context).width,
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 3,
+                    padding: const EdgeInsets.only(left: 14),
+                    itemBuilder: (context, index) {
+                      return Container(
+                        margin: const EdgeInsets.only(right: 10),
+                        width: 120,
+                        height: 125,
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Daily",
                               style: theme.textTheme.titleMedium?.copyWith(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white),
                             ),
-                          ),
-                          const Text(
-                            "/ day",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      width: 120,
-                      height: 125,
-                      decoration: BoxDecoration(
-                        color: Colors.grey.shade100,
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Monthly",
-                            style: theme.textTheme.titleMedium
-                                ?.copyWith(fontWeight: FontWeight.bold),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 2),
-                            child: Text(
-                              "\$40.00",
-                              style: theme.textTheme.titleMedium
-                                  ?.copyWith(fontWeight: FontWeight.bold),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 2),
+                              child: Text(
+                                "\$15.00",
+                                style: theme.textTheme.titleMedium?.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
                             ),
-                          ),
-                          const Text("/ month"),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 20),
-                ListTile(
-                  tileColor: theme.colorScheme.primaryContainer,
-                  leading: const Icon(IconlyLight.calendar),
-                  iconColor: theme.colorScheme.primary,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)),
-                  titleTextStyle: theme.textTheme.bodyLarge?.copyWith(
-                      color: theme.colorScheme.primary,
-                      fontWeight: FontWeight.bold),
-                  title: const Text("4 days"),
-                  trailing: Text(
-                    "Set dates",
-                    style: theme.textTheme.bodyLarge,
-                  ),
-                ),
-                const SizedBox(height: 20),
-                SizedBox(
-                  width: double.maxFinite,
-                  height: 50,
-                  child: FilledButton(
-                    onPressed: () {},
-                    style: FilledButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
+                            const Text(
+                              "/ day",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ],
                         ),
-                        textStyle: theme.textTheme.bodyLarge),
-                    child: const Text("Lease for \$65.00"),
+                      );
+                    }),
+              )
+            ],
+          ),
+          const SizedBox(height: 20),
+          Padding(
+            padding: const EdgeInsets.only(left: 14, right: 14),
+            child: ListTile(
+              tileColor: theme.colorScheme.primaryContainer,
+              leading: const Icon(IconlyLight.calendar),
+              iconColor: theme.colorScheme.primary,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              titleTextStyle: theme.textTheme.bodyLarge?.copyWith(
+                  color: theme.colorScheme.primary,
+                  fontWeight: FontWeight.bold),
+              title: const Text("4 days"),
+              trailing: Text(
+                "Set dates",
+                style: theme.textTheme.bodyLarge,
+              ),
+            ),
+          ),
+          const SizedBox(height: 20),
+          Container(
+            margin: const EdgeInsets.only(left: 14, right: 14),
+            width: double.maxFinite,
+            height: 50,
+            child: FilledButton(
+              onPressed: () {},
+              style: FilledButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                )
-              ],
+                  textStyle: theme.textTheme.bodyLarge),
+              child: const Text("Lease for \$65.00"),
             ),
           )
         ],
